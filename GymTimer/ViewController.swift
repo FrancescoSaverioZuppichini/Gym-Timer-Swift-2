@@ -13,11 +13,9 @@ class ViewController: NSViewController,NSWindowDelegate{
     
     @IBOutlet var MainView: NSView!
     
-    
     @IBOutlet weak var TimerLabel: NSTextField!
     @IBOutlet weak var StopButtom: NSButton!
     @IBOutlet weak var StartButtom: NSButton!
-    
     
     var timer = NSTimer()
     var dsecs = 0
@@ -32,24 +30,21 @@ class ViewController: NSViewController,NSWindowDelegate{
         super.viewDidLoad()
         TimerLabel.stringValue = formatTimer()
         
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear() {
         self.view.window!.delegate = self
         self.view.window!.title = "Gym Timer"
     }
-    
+    /* This function is called when a resize event is triggered */
     func windowWillResize(sender: NSWindow,toSize frameSize: NSSize) -> NSSize {
-        print(frameSize)
+        /* change the font of the timer when we resize it */
         TimerLabel.font = NSFont(name: TimerLabel.font!.fontName, size: 0.18*frameSize.width)
         return frameSize
-        // Your code goes here
     }
     
     func windowDidResize(notification: NSNotification) {
         
-        // Your code goes here
     }
     
     
@@ -58,6 +53,7 @@ class ViewController: NSViewController,NSWindowDelegate{
         StopButtom.title = "Stop"
         if(!started){
             started = true
+            /* set the timer to tick every 0.1s, the action is 'updateTimer' */
             self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         }
         
@@ -66,7 +62,9 @@ class ViewController: NSViewController,NSWindowDelegate{
     @IBAction func StopClicked(sender: AnyObject) {
         started = false
         if(reset){
+            /* re-set the timer */
             initializeTimer()
+            /* update the text */
             TimerLabel.stringValue = formatTimer()
         }
         reset = true
@@ -84,26 +82,25 @@ class ViewController: NSViewController,NSWindowDelegate{
     
     func formatTimer() ->String{
         
-        if(dsecs >= 10){
+        if(dsecs == 10){
             dsecs = 0
             secs+=1
         }
-        if (secs >= 60) {
+        if (secs == 60) {
             secs = 0
             mins += 1
         }
         
-        if (mins >= 60) {
+        if (mins == 60) {
             mins = 0
             hours += 1
         }
-        
-        return (formatZero(hours) + ":" + formatZero(mins) + ":"  + formatZero(secs) + "." + String(dsecs))
-        
-    }
-    
-    func formatZero(n : Int) ->String{
-        return n < 10 ? "0"+String(n) : String(n)
+        /* add missing zeros */
+        let strSeconds = String(format: "%02d", secs)
+        let strMinutes = String(format: "%02d", mins)
+        let strHours = String(format: "%02d", hours)
+
+        return (strHours + ":" + strMinutes + ":"  + strSeconds + "." + String(dsecs))
         
     }
     
@@ -114,7 +111,6 @@ class ViewController: NSViewController,NSWindowDelegate{
     
     override var representedObject: AnyObject? {
         didSet {
-            // Update the view, if already loaded.
         }
     }
     
