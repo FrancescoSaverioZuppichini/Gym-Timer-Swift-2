@@ -28,6 +28,7 @@ class ViewController: NSViewController,NSWindowDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /* load the first time */
         TimerLabel.stringValue = formatTimer()
         
     }
@@ -36,6 +37,7 @@ class ViewController: NSViewController,NSWindowDelegate{
         self.view.window!.delegate = self
         self.view.window!.title = "Gym Timer"
     }
+    
     /* This function is called when a resize event is triggered */
     func windowWillResize(sender: NSWindow,toSize frameSize: NSSize) -> NSSize {
         /* change the font of the timer when we resize it */
@@ -46,7 +48,6 @@ class ViewController: NSViewController,NSWindowDelegate{
     func windowDidResize(notification: NSNotification) {
         
     }
-    
     
     @IBAction func StartClicked(sender: AnyObject) {
         reset = false
@@ -71,7 +72,6 @@ class ViewController: NSViewController,NSWindowDelegate{
         StopButtom.title = "Reset"
         self.timer.invalidate()
     }
-    
     
     func initializeTimer(){
         dsecs = 0
@@ -99,7 +99,7 @@ class ViewController: NSViewController,NSWindowDelegate{
         let strSeconds = String(format: "%02d", secs)
         let strMinutes = String(format: "%02d", mins)
         let strHours = String(format: "%02d", hours)
-
+        
         return (strHours + ":" + strMinutes + ":"  + strSeconds + "." + String(dsecs))
         
     }

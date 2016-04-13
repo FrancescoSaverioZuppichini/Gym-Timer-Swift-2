@@ -690,7 +690,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLd-m8-AFR">
                                 <rect key="frame" x="18" y="111" width="450" height="69"/>
                                 <textFieldCell key="cell" enabled="NO" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="aKo-tY-dFw">
-                                    <font key="font" metaFont="system" size="75"/>
+                                    <font key="font" size="75" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
