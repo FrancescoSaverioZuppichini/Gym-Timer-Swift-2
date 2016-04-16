@@ -674,11 +674,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="GymTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="486" height="195"/>
+                        <rect key="frame" x="0.0" y="0.0" width="486" height="225"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NzH-YU-Vfv">
-                                <rect key="frame" x="322" y="18" width="150" height="32"/>
+                                <rect key="frame" x="322" y="48" width="150" height="32"/>
                                 <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fwB-xZ-cNd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -688,7 +688,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qLd-m8-AFR">
-                                <rect key="frame" x="18" y="81" width="450" height="69"/>
+                                <rect key="frame" x="18" y="111" width="450" height="69"/>
                                 <textFieldCell key="cell" enabled="NO" sendsActionOnEndEditing="YES" alignment="center" title="Label" id="aKo-tY-dFw">
                                     <font key="font" size="75" name="HelveticaNeue"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -696,7 +696,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AFi-lU-iuR">
-                                <rect key="frame" x="14" y="18" width="150" height="32"/>
+                                <rect key="frame" x="14" y="48" width="150" height="32"/>
                                 <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="STa-cq-rSC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -707,19 +707,18 @@
                             </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="qLd-m8-AFR" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="height" multiplier="446:225" id="0oR-4P-ubi"/>
                             <constraint firstItem="qLd-m8-AFR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="45" id="4zx-G7-gSt"/>
+                            <constraint firstAttribute="bottom" secondItem="NzH-YU-Vfv" secondAttribute="bottom" constant="25" id="7xY-m1-EaF"/>
                             <constraint firstItem="AFi-lU-iuR" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="14" id="BHT-Ba-eYp"/>
                             <constraint firstAttribute="trailing" secondItem="NzH-YU-Vfv" secondAttribute="trailing" constant="20" id="C74-re-4MF"/>
-                            <constraint firstItem="NzH-YU-Vfv" firstAttribute="top" secondItem="qLd-m8-AFR" secondAttribute="bottom" constant="35" id="F7v-Ll-EOw"/>
                             <constraint firstItem="AFi-lU-iuR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="149" id="Hgb-sa-nvL"/>
                             <constraint firstItem="NzH-YU-Vfv" firstAttribute="height" secondItem="AFi-lU-iuR" secondAttribute="height" id="MyU-aa-6jM"/>
-                            <constraint firstAttribute="bottom" secondItem="AFi-lU-iuR" secondAttribute="bottom" constant="25" id="NBL-BQ-tyS"/>
-                            <constraint firstItem="AFi-lU-iuR" firstAttribute="top" secondItem="qLd-m8-AFR" secondAttribute="bottom" constant="35" id="OYe-UN-NVH"/>
                             <constraint firstItem="NzH-YU-Vfv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="149" id="SCe-d7-40Z"/>
+                            <constraint firstAttribute="bottom" secondItem="AFi-lU-iuR" secondAttribute="bottom" constant="25" id="Xi9-VI-s5l"/>
                             <constraint firstAttribute="trailing" secondItem="qLd-m8-AFR" secondAttribute="trailing" constant="14" id="c3k-wi-BXz"/>
                             <constraint firstAttribute="trailing" secondItem="qLd-m8-AFR" secondAttribute="trailing" constant="14" id="eg8-5t-Zhh"/>
                             <constraint firstItem="qLd-m8-AFR" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="hsz-Pn-5Qm"/>
-                            <constraint firstItem="qLd-m8-AFR" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="height" multiplier="446:195" id="rOx-TN-8gg"/>
                             <constraint firstItem="NzH-YU-Vfv" firstAttribute="width" secondItem="AFi-lU-iuR" secondAttribute="width" id="wVD-N7-ePO"/>
                         </constraints>
                     </view>
@@ -732,7 +731,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78" y="617.5"/>
+            <point key="canvasLocation" x="78" y="632.5"/>
         </scene>
     </scenes>
 </document>
