@@ -18,7 +18,7 @@ class ViewController: NSViewController,NSWindowDelegate{
     @IBOutlet weak var StartButtom: NSButton!
     
     var timer = NSTimer()
-    var dsecs = 0
+    var csecs = 0
     var secs = 0
     var mins = 0
     var hours = 0
@@ -41,7 +41,7 @@ class ViewController: NSViewController,NSWindowDelegate{
     /* This function is called when a resize event is triggered */
     func windowWillResize(sender: NSWindow,toSize frameSize: NSSize) -> NSSize {
         /* change the font of the timer when we resize it */
-        TimerLabel.font = NSFont(name: TimerLabel.font!.fontName, size: 0.18*frameSize.width)
+        TimerLabel.font = NSFont(name: TimerLabel.font!.fontName, size: 0.16*frameSize.width)
         return frameSize
     }
     
@@ -55,7 +55,7 @@ class ViewController: NSViewController,NSWindowDelegate{
         if(!started){
             started = true
             /* set the timer to tick every 0.1s, the action is 'updateTimer' */
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target:self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         }
         
     }
@@ -74,7 +74,7 @@ class ViewController: NSViewController,NSWindowDelegate{
     }
     
     func initializeTimer(){
-        dsecs = 0
+        csecs = 0
         secs = 0
         mins = 0
         hours = 0
@@ -82,8 +82,8 @@ class ViewController: NSViewController,NSWindowDelegate{
     
     func formatTimer() ->String{
         
-        if(dsecs == 10){
-            dsecs = 0
+        if(csecs == 100){
+            csecs = 0
             secs+=1
         }
         if (secs == 60) {
@@ -96,16 +96,17 @@ class ViewController: NSViewController,NSWindowDelegate{
             hours += 1
         }
         /* add missing zeros */
+        let strCSeconds = String(format: "%02d", csecs)
         let strSeconds = String(format: "%02d", secs)
         let strMinutes = String(format: "%02d", mins)
         let strHours = String(format: "%02d", hours)
         
-        return (strHours + ":" + strMinutes + ":"  + strSeconds + "." + String(dsecs))
+        return (strHours + ":" + strMinutes + ":"  + strSeconds + "." + strCSeconds)
         
     }
     
     func updateTimer(){
-        dsecs += 1
+        csecs += 1
         TimerLabel.stringValue = formatTimer()
     }
     
