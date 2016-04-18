@@ -18,7 +18,7 @@ class ViewController: NSViewController,NSWindowDelegate{
     @IBOutlet weak var StartButtom: NSButton!
     
     var timer = NSTimer()
-    var csecs = 0
+    var dsecs = 0
     var secs = 0
     var mins = 0
     var hours = 0
@@ -55,7 +55,7 @@ class ViewController: NSViewController,NSWindowDelegate{
         if(!started){
             started = true
             /* set the timer to tick every 0.1s, the action is 'updateTimer' */
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target:self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target:self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
         }
         
     }
@@ -74,7 +74,7 @@ class ViewController: NSViewController,NSWindowDelegate{
     }
     
     func initializeTimer(){
-        csecs = 0
+        dsecs = 0
         secs = 0
         mins = 0
         hours = 0
@@ -82,9 +82,9 @@ class ViewController: NSViewController,NSWindowDelegate{
     
     func formatTimer() ->String{
         
-        if(csecs == 100){
-            csecs = 0
-            secs+=1
+        if(dsecs == 10){
+            dsecs = 0
+            secs += 1;
         }
         if (secs == 60) {
             secs = 0
@@ -96,17 +96,17 @@ class ViewController: NSViewController,NSWindowDelegate{
             hours += 1
         }
         /* add missing zeros */
-        let strCSeconds = String(format: "%02d", csecs)
+//        let strCSeconds = String(format: "%02d", dsecs)
         let strSeconds = String(format: "%02d", secs)
         let strMinutes = String(format: "%02d", mins)
         let strHours = String(format: "%02d", hours)
         
-        return (strHours + ":" + strMinutes + ":"  + strSeconds + "." + strCSeconds)
+        return (strHours + ":" + strMinutes + ":"  + strSeconds + "." + String(dsecs))
         
     }
     
     func updateTimer(){
-        csecs += 1
+        dsecs += 1
         TimerLabel.stringValue = formatTimer()
     }
     
